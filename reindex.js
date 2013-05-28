@@ -1,3 +1,8 @@
+// https://github.com/Rich-Harris/reindex
+// --------------------------------------
+//
+// MIT licensed. Go nuts.
+
 (function ( global ) {
 
 	'use strict';
@@ -7,6 +12,10 @@
 
 		if ( Object.prototype.toString.call( array ) === '[object Array]' ) {
 			throw new Error( 'Cannot reindex a non-array!' );
+		}
+
+		if ( !idField ) {
+			throw new Error( 'You must specify an ID field' );
 		}
 
 		i = arrayOrObject.length;
@@ -34,6 +43,5 @@
 	else {
 		global.reindex = reindex;
 	}
-
 
 }( this ));
