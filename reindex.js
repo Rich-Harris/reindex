@@ -30,13 +30,13 @@
 	};
 
 	// export as CommonJS module...
-	if ( global.module && global.module.exports ) {
-		global.module.exports = reindex;
+	if ( typeof module !== 'undefined' && module.exports ) {
+		module.exports = reindex;
 	}
 
 	// ... or as AMD module...
-	else if ( global.define && global.define.amd ) {
-		global.define( function () { return reindex; });
+	else if ( typeof define !== 'undefined' && define.amd ) {
+		define( function () { return reindex; });
 	}
 
 	// ... or as browser global
