@@ -20,7 +20,8 @@ That's great - you can iterate through the list quickly, and sort it, and filter
 lookup = reindex( countries, 'code' );
 code = 'AFG'; // got via a dropdown select, or whatever
 
-console.log( lookup[code] ); // { code: 'AFG', name: 'Afghanistan', population: 31108077 }
+console.log( lookup[code] );
+// -> { code: 'AFG', name: 'Afghanistan', population: 31108077 }
 ```
 
 Pretty basic stuff, but I found myself rewriting it in just about every new project when I should have been doing this:
