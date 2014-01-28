@@ -36,6 +36,8 @@ Works everywhere, is AMD compatible.
 Why would you use this instead of `_.find()`?
 ---------------------------------------------
 
+*Written in response to [this tweet](https://twitter.com/BrianRosamilia/status/428285680913891329). As [pointed out by @jdalton](https://twitter.com/jdalton/status/428298721181175808), there's also a `_.indexBy()` function, which does basically the same thing as reindex.js. Crucially, it's available as a [standalone npm module](https://npmjs.org/package/lodash.indexby). Thanks John!*
+
 If you just want to find a particular item in an array, you could use [Underscore](http://underscorejs.org/#find) or [Lodash](http://lodash.com/docs#find):
 
 ```js
