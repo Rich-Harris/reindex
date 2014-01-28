@@ -1,21 +1,38 @@
 reindex.js
 ==========
 
-Got bored of rewriting this for every project, so put it here. It does one simple job:
+You have an array, which looks like this:
 
 ```js
-array = [
-    { id: 'AFG', name: 'Afghanistan' },
-    { id: 'ALB', name: 'Albania' },
-    { id: 'ASM', name: 'American Samoa' }
-    // and so on...
+countries = [
+	{ code: 'ABW', name: 'Aruba', population: 102484 },
+	{ code: 'AFG', name: 'Afghanistan', population: 31108077 },
+	{ code: 'AGO', name: 'Angola', population: 18498000 },
+	{ code: 'AIA', name: 'Anguilla', population: 13600 },
+	{ code: 'ALA', name: 'Åland Islands', population: 28355 },
+	...
 ];
-
-hash = reindex( array, 'id' );
-
-console.log( hash.AFG ); // { id: 'AFG', name: 'Afghanistan' }
 ```
 
-This is handy if you have a bunch of data loaded from a CSV or something, and you want a fast way to iterate through all your records (the array) but also to quickly look up information indexed by an id (the hash).
+That's great - you can iterate through the list quickly, and sort it, and filter it, and do all the things you'd normally do with arrays. But what if you need the record for a particular country?
 
-Works everywhere, is AMD compatible. MIT licensed.
+```js
+lookup = reindex( countries, 'code' );
+code = 'AFG'; // got via a dropdown select, or whatever
+
+console.log( lookup[code] ); // { code: 'AFG', name: 'Afghanistan', population: 31108077 }
+```
+
+Pretty basic stuff, but I found myself rewriting it in just about every new project when I should have been doing this:
+
+```
+$ npm install reindex
+```
+
+Works everywhere, is AMD compatible.
+
+
+License
+-------
+
+MIT

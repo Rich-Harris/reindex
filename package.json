@@ -1,0 +1,6 @@
+{
+	"name": "reindex",
+	"description": "Generate a lookup table from an array",
+	"version": "0.1.0",
+	"author": "Rich Harris"
+}

@@ -44,4 +44,4 @@
 		global.reindex = reindex;
 	}
 
-}( this ));
+}( typeof window !== 'undefined' ? window : this ));
