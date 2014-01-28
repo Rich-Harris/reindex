@@ -33,6 +33,31 @@ $ npm install reindex
 Works everywhere, is AMD compatible.
 
 
+Why would you use this instead of `_.find()`?
+---------------------------------------------
+
+If you just want to find a particular item in an array, you could use [Underscore](http://underscorejs.org/#find) or [Lodash](http://lodash.com/docs#find):
+
+```js
+// with Underscore
+_.find( countries, function ( country ) {
+  return country.code === code;
+});
+
+// with Lodash, you could also do this
+_.find( countries, { code: code });
+```
+
+That way you only go as far through the array as you need to in order to find what you're looking for, rather than reindexing the whole thing.
+
+But if you want to repeatedly look up items, and the objects in your array have a consistent (and unique!) ID field, like `code` in the example above, reindex.js is way simpler and faster:
+
+* You only iterate through the array once (if you used `_.find()` three times, then assuming the members you were looking for were somewhere in the middle of the array on average, you'd have already iterated through more array members in total than reindex.js)
+* Both Underscore and Lodash call an iterator function (Lodash has to create one, if you supply an object of properties to match instead of a function), which has an unavoidable performance overhead even if you're [@jdalton](https://twitter.com/jdalton).
+
+In summary: this is for creating lookup tables, not for ad-hoc finding of array members.
+
+
 License
 -------
 
